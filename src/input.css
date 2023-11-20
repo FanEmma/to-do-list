@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.body {
+  @apply flex-col justify-center content-center md:text-lg text-gray-700 tracking-wide md:tracking-wider bg-sky-100;
+}
+
+.footer {
+  @apply text-center text-xs;
+}
+
+.main {
+  @apply md:mb-20 transform scale-90 md:scale-100 mx-auto;
+  max-width: 550px;
+}
+
+.title {
+  @apply mt-2 mb-6 md:mt-20 md:mb-12 uppercase text-center text-4xl md:text-5xl md:transform md:scale-105 font-bold;
+}
+
+.input-label {
+  @apply mb-3 flex items-center bg-white rounded-full overflow-hidden shadow-lg;
+}
+
+.input {
+  @apply pl-7 pr-4 py-3 flex-grow md:text-lg tracking-wide md:tracking-wider border-none focus:ring-0 placeholder-gray-400 outline-none;
+}
+
+.btn-add {
+  @apply mr-1 w-11 h-11 text-3xl text-white bg-sky-500 hover:bg-sky-600 active:bg-sky-700 transition rounded-full focus:outline-none;
+}
+
+.btn-edit {
+  @apply text-gray-400 group-hover/modify:text-gray-500 group-active/modify:text-gray-600 transition pointer-events-none;
+}
+
+.btn-delete {
+  @apply  text-red-400 group-hover/delete:text-red-500 group-active/delete:text-red-600 transition pointer-events-none;
+}
+
+.btn-clear {
+  @apply text-sm inline-flex items-center font-bold uppercase px-4 py-2 rounded-full cursor-pointer shadow-md text-gray-600 transition bg-white hover:bg-gray-200 active:bg-gray-300 w-fit mx-auto border-2 border-slate-200 active:border-slate-300;
+}
+
+.btn-unsubscribe {
+  @apply text-sm inline-flex items-center font-bold uppercase px-4 py-2 rounded-full cursor-pointer shadow-md text-orange-700 transition bg-white hover:bg-orange-200 border-2 border-orange-200 active:border-orange-300 w-fit mx-auto;
+}
+
+.btn-check {
+  @apply text-gray-300 group-hover/check:text-gray-400 group-active/check:text-gray-700 transition pointer-events-none;
+}
+
+.btn-check-done {
+  @apply text-gray-600 group-hover/check:text-gray-500 group-active/check:text-gray-400 transition pointer-events-none;
+}
+
+.tags {
+  @apply flex justify-center text-center font-bold p-5 gap-5;
+}
+
+.tag {
+  @apply text-base inline-flex items-center font-bold uppercase px-5 py-2 rounded-full cursor-pointer shadow-md text-white transition;
+}
+
+.main-list {
+  @apply px-6 pt-9 pb-6 -mt-10 flex flex-col justify-center bg-white rounded-xl shadow-lg;
+}
+
+.item {
+  @apply flex items-center gap-1 py-1;
+}
+
+.item-text {
+  @apply ml-1 flex-grow cursor-text border-b-2 border-gray-100 focus:outline-none text-gray-700 filter grayscale break-all overflow-x-hidden;
+}
+
+.edit-textarea {
+  @apply p-2 w-full h-full resize-none border focus:invalid:border-sky-600;
+}
+
+.clear-btns {
+  @apply text-center pt-5;
+}
