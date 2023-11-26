@@ -23,25 +23,22 @@ class Model {
     this.listModifiedEvent.notify(this.list);
   }
 
-  /** 顯示編輯狀態項目 */
-  showEditItem(id, input) {
+  /** 顯示與編輯狀態項目 */
+  editItem(id, input) {
     const item = this.list[id];
-    if (item.isActive) {
-      if (item.isEdit) {
-        item.item = input;
-      }
-      item.isEdit = !item.isEdit;
+    if (item.isEdit) {
+      item.item = input;
     }
+    item.isEdit = !item.isEdit;
     this.listModifiedEvent.notify(this.list);
   }
-
-  saveEditItem(id) {}
 
   /** 顯示全部事項 */
   showAll() {
     this.list.forEach((item) => {
       item.visible = true;
     });
+    this.currentFilter = 'all'; // 設定當前分類狀態
     this.listModifiedEvent.notify(this.list);
   }
 
@@ -50,6 +47,8 @@ class Model {
     this.list.forEach((item) => {
       item.visible = item.isActive;
     });
+
+    this.currentFilter = 'active';
     this.listModifiedEvent.notify(this.list);
   }
 
@@ -58,6 +57,8 @@ class Model {
     this.list.forEach((item) => {
       item.visible = !item.isActive;
     });
+
+    this.currentFilter = 'complete';
     this.listModifiedEvent.notify(this.list);
   }
 

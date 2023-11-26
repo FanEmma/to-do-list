@@ -3,6 +3,7 @@ class View {
     // 確保 handleEvent 使用的 this 為 constructor
     let that = this;
     this.listButtonEvent = new Observable(this);
+    this.currentFilter = 'all';
 
     document.body.addEventListener('keypress', handleEvent);
     document.body.addEventListener('click', handleEvent);
@@ -30,7 +31,11 @@ class View {
   }
 
   addInput() {
-    return document.getElementById('input').value;
+    const inputElement = document.getElementById('input');
+    const output = inputElement.value;
+    // 清空 input value
+    inputElement.value = '';
+    return output;
   }
 
   editInput(id) {
@@ -80,15 +85,15 @@ class View {
         ul.appendChild(li);
       }
     });
+  }
 
-    // 刪除 input value
-    document.getElementById('input').value = '';
-
+  tagRender(list, filter) {
     // 分類按鈕文字
-    let allButton = document.getElementById('allButton');
-    let activeButton = document.getElementById('activeButton');
-    let completeButton = document.getElementById('completeButton');
+    let allButton = document.getElementById('all');
+    let activeButton = document.getElementById('active');
+    let completeButton = document.getElementById('complete');
 
+    // 篩選列表
     let activeListNum = list.filter((listItem) => {
       return listItem.isActive;
     }).length;
@@ -96,8 +101,19 @@ class View {
       return !listItem.isActive;
     }).length;
 
+    // 項目數量文字
     allButton.innerHTML = `全部事項 ${list.length}`;
     activeButton.innerHTML = `待辦事項 ${activeListNum}`;
     completeButton.innerHTML = `完成事項 ${completeListNum}`;
+
+    // tag style
+    this.setTagStyle(allButton, filter === 'all');
+    this.setTagStyle(activeButton, filter === 'active');
+    this.setTagStyle(completeButton, filter === 'complete');
+  }
+
+  // 設定按鈕樣式
+  setTagStyle(button, isSelected) {
+    button.classList.toggle('selected', isSelected);
   }
 }

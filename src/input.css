@@ -40,11 +40,11 @@
 }
 
 .btn-clear {
-  @apply text-sm inline-flex items-center font-bold uppercase px-4 py-2 rounded-full cursor-pointer shadow-md text-gray-600 transition bg-white hover:bg-gray-200 active:bg-gray-300 w-fit mx-auto border-2 border-slate-200 active:border-slate-300;
+  @apply text-sm inline-flex items-center font-bold uppercase px-4 py-2 rounded-full cursor-pointer shadow-md text-gray-600 transition bg-white hover:bg-gray-200 active:bg-gray-300 w-fit border-2 border-slate-200 active:border-slate-300;
 }
 
 .btn-unsubscribe {
-  @apply text-sm inline-flex items-center font-bold uppercase px-4 py-2 rounded-full cursor-pointer shadow-md text-orange-700 transition bg-white hover:bg-orange-200 border-2 border-orange-200 active:border-orange-300 w-fit mx-auto;
+  @apply text-sm inline-flex items-center font-bold uppercase px-4 py-2 rounded-full cursor-pointer shadow-md text-orange-700 transition bg-white hover:bg-orange-200 border-2 border-orange-200 active:border-orange-300 w-fit;
 }
 
 .btn-check {
@@ -80,5 +80,21 @@
 }
 
 .clear-btns {
-  @apply text-center pt-5;
+  @apply flex justify-center text-center font-bold gap-5;
+}
+
+.tag-primary {
+  @apply bg-sky-500 hover:bg-sky-600 active:bg-sky-700 outline-sky-500;
+}
+
+.tag-success {
+  @apply bg-teal-500 hover:bg-teal-600 active:bg-teal-700 outline-teal-500;
+}
+
+.tag-danger {
+  @apply bg-red-500 hover:bg-red-600 active:bg-red-700 outline-red-500;
+}
+
+.selected {
+  @apply outline outline-offset-2;
 }

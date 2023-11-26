@@ -546,21 +546,6 @@ video {
   display: none;
 }
 
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-
-.bg-sky-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
-}
-
-.bg-teal-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
-}
-
 .p-2 {
   padding: 0.5rem;
 }
@@ -769,8 +754,6 @@ video {
 }
 
 .btn-clear {
-  margin-left: auto;
-  margin-right: auto;
   display: inline-flex;
   width: -moz-fit-content;
   width: fit-content;
@@ -815,8 +798,6 @@ video {
 }
 
 .btn-unsubscribe {
-  margin-left: auto;
-  margin-right: auto;
   display: inline-flex;
   width: -moz-fit-content;
   width: fit-content;
@@ -993,36 +974,62 @@ video {
 }
 
 .clear-btns {
-  padding-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
   text-align: center;
+  font-weight: 700;
 }
 
-.hover\:bg-red-600:hover {
+.tag-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+  outline-color: #0ea5e9;
 }
 
-.hover\:bg-sky-600:hover {
+.tag-primary:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(2 132 199 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-teal-600:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(13 148 136 / var(--tw-bg-opacity));
-}
-
-.active\:bg-red-700:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-
-.active\:bg-sky-700:active {
+.tag-primary:active {
   --tw-bg-opacity: 1;
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));
 }
 
-.active\:bg-teal-700:active {
+.tag-success {
+  --tw-bg-opacity: 1;
+  background-color: rgb(20 184 166 / var(--tw-bg-opacity));
+  outline-color: #14b8a6;
+}
+
+.tag-success:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 148 136 / var(--tw-bg-opacity));
+}
+
+.tag-success:active {
   --tw-bg-opacity: 1;
   background-color: rgb(15 118 110 / var(--tw-bg-opacity));
+}
+
+.tag-danger {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  outline-color: #ef4444;
+}
+
+.tag-danger:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
+.tag-danger:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+
+.selected {
+  outline-style: solid;
+  outline-offset: 2px;
 }

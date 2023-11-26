@@ -1,6 +1,7 @@
 class Observable {
   /** 觀察者 */
-  constructor() {
+  constructor(notifier) {
+    this.notifier = notifier;
     this.observers = [];
   }
 
@@ -12,7 +13,7 @@ class Observable {
   /** 通知 */
   notify(val1, val2) {
     this.observers.forEach((observer) => {
-      observer(val1, val2);
+      observer.call(this.notifier, val1, val2);
     });
   }
 

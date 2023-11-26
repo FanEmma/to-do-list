@@ -14,7 +14,7 @@ class Controller {
       add: (input) => this.model.addItem(new TodoItem(input)),
       remove: (id) => this.model.removeItem(id),
       complete: (id) => this.model.completeItem(id),
-      edit: (id, input) => this.model.showEditItem(id, input),
+      edit: (id, input) => this.model.editItem(id, input),
       allList: () => this.model.showAll(),
       activeList: () => this.model.showActive(),
       completeList: () => this.model.showComplete(),
@@ -44,5 +44,6 @@ class Controller {
   /** 已最新的清單狀態更新視圖 */
   listModified(list) {
     this.view.render(list);
+    this.view.tagRender(list, this.model.currentFilter);
   }
 }
