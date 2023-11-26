@@ -64,16 +64,22 @@ class Model {
 
   /** 清除完成事項 */
   clear() {
-    this.list = this.list.filter((item) => {
-      return item.isActive;
-    });
-    this.listModifiedEvent.notify(this.list);
+    const isConfirmed = confirm('確定要清除完成事項嗎？');
+    if (isConfirmed) {
+      this.list = this.list.filter((item) => {
+        return item.isActive;
+      });
+      this.listModifiedEvent.notify(this.list);
+    }
   }
 
   /** 清除所有事項 */
   clearAll() {
-    this.list = [];
-    this.listModifiedEvent.notify(this.list);
+    const isConfirmed = confirm('確定要清除所有事項嗎？');
+    if (isConfirmed) {
+      this.list = [];
+      this.listModifiedEvent.notify(this.list);
+    }
   }
 
   /** list 資料儲存在 localStorage */

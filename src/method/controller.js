@@ -26,7 +26,7 @@ class Controller {
 
   /** 取消訂閱： model.listModifiedEvent 事件發生變化時將不再通知 Controller */
   listModifiedEventUnsubscribe() {
-    model.listModifiedEvent.unsubscribe(this.listModified);
+    this.model.listModifiedEvent.unsubscribe(this.listModified);
   }
 
   /** 處理按鈕事件及要傳入的資料 */
