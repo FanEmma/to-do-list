@@ -3,7 +3,6 @@ class View {
     // 確保 handleEvent 使用的 this 為 constructor
     let that = this;
     this.listButtonEvent = new Observable(this);
-    this.currentFilter = 'all';
 
     document.body.addEventListener('keypress', handleEvent);
     document.body.addEventListener('click', handleEvent);
@@ -74,6 +73,7 @@ class View {
           }
           li.style.setProperty('text-decoration', 'line-through');
         }
+
         /** 編輯狀態 toggle */
         if (listItem.isEdit) {
           const textItem = li.querySelector('.item-text');
@@ -87,13 +87,12 @@ class View {
     });
   }
 
-  tagRender(list, filter) {
-    // 分類按鈕文字
-    let allButton = document.getElementById('all');
-    let activeButton = document.getElementById('active');
-    let completeButton = document.getElementById('complete');
+  tagsRender(list, filter) {
+    // 分類按鈕
+    let testButton = document.querySelectorAll('.tags .tag');
 
-    // 篩選列表
+    // 篩選數量
+    let allListNum = list.length;
     let activeListNum = list.filter((listItem) => {
       return listItem.isActive;
     }).length;
@@ -101,19 +100,27 @@ class View {
       return !listItem.isActive;
     }).length;
 
-    // 項目數量文字
-    allButton.innerHTML = `全部事項 ${list.length}`;
-    activeButton.innerHTML = `待辦事項 ${activeListNum}`;
-    completeButton.innerHTML = `完成事項 ${completeListNum}`;
+    // 組成物件
+    let numObj = {
+      all: `全部事項 ${allListNum}`,
+      active: `待辦事項 ${activeListNum}`,
+      complete: `完成事項 ${completeListNum}`,
+    };
 
-    // tag style
-    this.setTagStyle(allButton, filter === 'all');
-    this.setTagStyle(activeButton, filter === 'active');
-    this.setTagStyle(completeButton, filter === 'complete');
+    // 樣式改動
+    testButton.forEach((item) => {
+      this.setTagStyle(item, filter === item.id);
+      this.setTagText(item, numObj[item.id]);
+    });
   }
 
-  // 設定按鈕樣式
+  // 篩選按鈕選中樣式
   setTagStyle(button, isSelected) {
     button.classList.toggle('selected', isSelected);
+  }
+
+  // 篩選按鈕文字
+  setTagText(button, numText) {
+    button.innerHTML = numText;
   }
 }

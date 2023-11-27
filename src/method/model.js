@@ -2,6 +2,7 @@ class Model {
   constructor() {
     this.list = [];
     this.listModifiedEvent = new Observable(this);
+    this.currentFilter = 'all';
   }
 
   /** 增加待辦事項 */

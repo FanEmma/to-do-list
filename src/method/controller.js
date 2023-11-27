@@ -44,6 +44,6 @@ class Controller {
   /** 已最新的清單狀態更新視圖 */
   listModified(list) {
     this.view.render(list);
-    this.view.tagRender(list, this.model.currentFilter);
+    this.view.tagsRender(list, this.model.currentFilter);
   }
 }
