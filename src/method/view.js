@@ -89,7 +89,7 @@ class View {
 
   tagsRender(list, filter) {
     // 分類按鈕
-    let testButton = document.querySelectorAll('.tags .tag');
+    let tagButtons = document.querySelectorAll('.tags .tag');
 
     // 篩選數量
     let allListNum = list.length;
@@ -108,7 +108,7 @@ class View {
     };
 
     // 樣式改動
-    testButton.forEach((item) => {
+    tagButtons.forEach((item) => {
       this.setTagStyle(item, filter === item.id);
       this.setTagText(item, numObj[item.id]);
     });
